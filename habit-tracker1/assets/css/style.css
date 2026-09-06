@@ -1,0 +1,563 @@
+/* ==========================================
+   BASE & RESET STYLES
+   ========================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    position: relative;
+    z-index: 1;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: #cddbe9;
+    color: #1e293b;
+    line-height: 1.5;
+}
+
+/* ==========================================
+   NAVBAR & DROPDOWN
+   ========================================== */
+.navbar {
+    position: relative;
+    z-index: 900;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 28px;
+    background: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #0f172a;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.pts-badge {
+    background: #fef3c7;
+    color: #d97706;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+.user-btn {
+    background: #f1f5f9;
+    border: 1px solid #cbd5e1;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    color: #334155;
+    transition: background 0.2s;
+}
+
+.user-btn:hover {
+    background: #e2e8f0;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    margin-top: 6px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    min-width: 150px;
+    z-index: 10000 !important;
+    overflow: hidden;
+}
+
+.dropdown-menu.show {
+    display: block !important;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px 16px;
+    color: #334155;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+
+.dropdown-menu a:hover {
+    background: #f1f5f9;
+}
+
+/* ==========================================
+   2-COLUMN DASHBOARD LAYOUT
+   ========================================== */
+.container {
+    max-width: 1200px;
+    margin: 24px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 28px;
+}
+
+@media (max-width: 850px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==========================================
+   MAIN CONTENT (ROUTINE CARDS)
+   ========================================== */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.main-content h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 4px;
+}
+
+.section-title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #64748b;
+    letter-spacing: 0.05em;
+    margin-top: 10px;
+}
+
+.card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.routine-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 14px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.routine-card:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.routine-card.done {
+    background: #f0fdf4;
+    border-color: #bbf7d0;
+    color: #166534;
+    text-decoration: line-through;
+    opacity: 0.85;
+}
+
+.routine-card.skipped {
+    background: #fef2f2;
+    border-color: #fecaca;
+    color: #991b1b;
+    opacity: 0.75;
+}
+
+.empty-text {
+    background: #ffffff;
+    border: 1px dashed #cbd5e1;
+    border-radius: 10px;
+    padding: 16px;
+    color: #3e4146;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.actions {
+    display: flex;
+    gap: 8px;
+}
+
+.action-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+
+.btn-check {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.btn-check:hover {
+    background: #bbf7d0;
+}
+
+.btn-skip {
+    background: #fef9c3;
+    color: #a16207;
+}
+
+.btn-skip:hover {
+    background: #fef08a;
+}
+
+.btn-delete {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+.btn-delete:hover {
+    background: #fecaca;
+}
+
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    z-index: 1 !important;
+}
+
+.btn-add {
+    width: max-content;        
+    align-self: flex-start;    
+    padding: 8px 16px;         
+    font-size: 0.875rem;      
+    background: #0284c7;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-add:hover {
+    background: #0369a1;
+}
+
+.btn-add:active {
+    transform: scale(0.99);
+}
+
+/* CALENDAR */
+.calendar-box {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 18px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.cal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    font-size: 0.875rem;
+    color: #334155;
+    margin-bottom: 14px;
+}
+
+.cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    text-align: center;
+}
+
+.cal-day-name {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #94a3b8;
+    padding-bottom: 6px;
+}
+
+.cal-date {
+    padding: 8px 0;
+    font-size: 0.85rem;
+    border-radius: 6px;
+    color: #334155;
+}
+
+.cal-date.active {
+    background: #0284c7;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+/* STATISTICS CARD & CHART */
+.stats-box {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 18px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.stats-header {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #64748b;
+    margin-bottom: 14px;
+    letter-spacing: 0.05em;
+}
+
+.stats-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.stat-card {
+    background: #f8fafc;
+    border: 1px solid #f1f5f9;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+}
+
+.stat-value {
+    font-size: 1.25rem;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.stat-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #64748b;
+    margin-top: 4px;
+}
+
+.chart-wrapper {
+    position: relative;
+}
+
+/* ==========================================
+   ADD ROUTINE MODAL OVERLAY
+   ========================================== */
+.modal-overlay {
+    display: none !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(15, 23, 42, 0.5);
+    backdrop-filter: blur(2px);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-overlay.active {
+    display: flex !important;
+}
+
+.modal-box {
+    background: #ffffff;
+    padding: 24px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.modal-box h3 {
+    margin-top: 0;
+    color: #0f172a;
+    font-size: 1.2rem;
+}
+
+.modal-box input {
+    width: 100%;
+    padding: 10px 12px;
+    margin: 14px 0 20px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 0.95rem;
+}
+
+.modal-box input:focus {
+    outline: none;
+    border-color: #0284c7;
+    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.modal-actions button {
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.btn-cancel {
+    background: #e2e8f0;
+    color: #475569;
+}
+
+.btn-cancel:hover {
+    background: #cbd5e1;
+}
+
+.btn-submit {
+    background: #0284c7;
+    color: white;
+}
+
+.btn-submit:hover {
+    background: #0369a1;
+}
+
+/* Theme Toggle Button */
+.theme-btn {
+    background: #f1f5f9;
+    border: 1px solid #cbd5e1;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer !important;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+.theme-btn:hover {
+    background: #e2e8f0;
+}
+
+/* DARK THEME STYLES */
+[data-theme="dark"] body {
+    background-color: #0f172a;
+    color: #f8fafc;
+}
+
+/* Navbar & Logo */
+[data-theme="dark"] .navbar {
+    background-color: #1e293b;
+    border-bottom: 1px solid #334155;
+}
+
+[data-theme="dark"] .logo {
+    color: #f8fafc !important;
+}
+
+/* Section Headings & Main Title */
+[data-theme="dark"] main h2,
+[data-theme="dark"] .section-title,
+[data-theme="dark"] .stats-header {
+    color: #93c5fd !important; /* Soft bright blue */
+}
+
+/* Routine Cards & Inner Text */
+[data-theme="dark"] .routine-card,
+[data-theme="dark"] .sidebar,
+[data-theme="dark"] .modal-box,
+[data-theme="dark"] .calendar-box,
+[data-theme="dark"] .stats-box {
+    background-color: #1e293b;
+    color: #f8fafc;
+    border-color: #334155;
+}
+
+[data-theme="dark"] .routine-card span {
+    color: #f8fafc !important; /* Bright white for routine titles */
+}
+
+/* Empty Routine Placeholder */
+[data-theme="dark"] .empty-text {
+    background-color: #1e293b !important;
+    color: #94a3b8 !important;
+    border: 1px dashed #334155 !important;
+    border-radius: 8px;
+    padding: 12px;
+}
+
+/* Calendar Contrast Fixes */
+[data-theme="dark"] .cal-header,
+[data-theme="dark"] .cal-header span {
+    color: #cbd5e1 !important;
+}
+
+[data-theme="dark"] .cal-day-name {
+    color: #94a3b8 !important;
+}
+
+[data-theme="dark"] .cal-date {
+    color: #e2e8f0 !important;
+}
+
+[data-theme="dark"] .cal-date.active {
+    background-color: #0284c7 !important;
+    color: #ffffff !important;
+}
+
+/* Statistics Box Cards */
+[data-theme="dark"] .stat-card {
+    background-color: #0f172a !important;
+    border: 1px solid #334155 !important;
+    border-radius: 8px;
+}
+
+[data-theme="dark"] .stat-label {
+    color: #94a3b8 !important;
+}
+
+/* Header Action Buttons */
+[data-theme="dark"] .user-btn,
+[data-theme="dark"] .theme-btn {
+    background: #334155;
+    border-color: #475569;
+    color: #f8fafc;
+}
+
+[data-theme="dark"] .user-btn:hover,
+[data-theme="dark"] .theme-btn:hover {
+    background: #475569;
+}
+
+[data-theme="dark"] .modal-box input {
+    background: #0f172a;
+    border-color: #475569;
+    color: #f8fafc;
+}   
